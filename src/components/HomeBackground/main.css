@@ -1,0 +1,37 @@
+.home-background{
+    background-image: url('../../assets/naruto.jpg');
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.home-background-layout{
+    background-color: rgb(0 0 0 / 49%);
+}
+.home-background-layout h4{
+    font-size: 20px;
+}
+.home-background-layout p{
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+
+
+@media(min-width: 0px){
+    .home-background{
+        background-position: unset;
+    }
+    .home-background-layout{
+        padding: 10px;
+    }
+}
+@media(min-width: 400px){
+    .home-background{
+        background-position: left;
+    }
+    .home-background-layout{
+        padding: 20px;
+    }
+}

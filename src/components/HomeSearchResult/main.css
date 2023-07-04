@@ -1,0 +1,45 @@
+.item{
+    background-color: #496583;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+
+.item-image{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.item-image img{
+    height: 70vh;
+    width: 100vw;
+}
+.item-image span{
+    background: #42b883;
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 30px;
+}
+
+
+.item-info{
+    padding: 20px;
+}
+
+.item-info span{
+    color: #aaa;
+}
+.item-info h2{
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+@media(min-width: 0px){
+}
+@media(min-width: 400px){
+}
+@media(min-width: 900px){
+}
