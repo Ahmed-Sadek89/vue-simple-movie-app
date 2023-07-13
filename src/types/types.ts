@@ -1,21 +1,32 @@
-export type searchResultObject = {
+export type searchByTitleType = {
     imdbID: string,
     Poster: string,
     Title: string,
     Type: string,
     Year: string,
-} | null
-  
-export type searchResultType = {
-    Error: string,
-    Search: searchResultObject[]
-} | null
+    Response: string,
+    Error: string
+} 
 
-export type detailType = {
+export type searchByIDType = {
     Title: string,
     Year: string,
     Plot: string,
     Poster: string,
     Type: string
+    Response: string,
+    Error: string
+} 
+
+
+export type payloadTypeInSearchByTitle = {
+    loading: boolean,
+    error: boolean,
+    result: searchByTitleType[]
 }
-  
+
+export type payloadTypeInSearchById = {
+    loading: boolean,
+    error: boolean,
+    result: searchByIDType 
+} 

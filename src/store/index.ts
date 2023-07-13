@@ -1,35 +1,52 @@
 import { api_link } from '@/assets/env'
 import { createStore } from 'vuex'
+import { payloadTypeInSearchById, payloadTypeInSearchByTitle, searchByIDType, searchByTitleType } from "@/types/types"
+import Action from './Actions/Action'
 
 export default createStore({
   state: {
-      resultByTitle: {
-        Error: '',
-        Search: []
-      },
-      resultByID: null
+    resultByTitle: {
+      loading: false,
+      error: false,
+      result: [] as searchByTitleType[]
+    },
+    resultByID: {
+      loading: false,
+      error: false,
+      result: {} as searchByIDType
+    }
   },
   mutations: {
-    setResultByTitle(state, payload) {
-      state.resultByTitle.Error = payload.Error
-      state.resultByTitle.Search = payload.Search 
+    setResultByTitle( state, payload: payloadTypeInSearchByTitle ) {
+      state.resultByTitle = payload
     },
-    setResultByID( state, payload ) {
-      state.resultByID = payload
+    setResultByID( state, payload: payloadTypeInSearchById ) {
+      state.resultByID = payload;
     }
   },
   actions: {
-    async fetchResultByTitle( { commit }, payload ) {
-      const res = await fetch(`${api_link}&s=${payload}`);
-      const data = await res.json()
-      const Error = data.Error;
-      const Search = data.Search;
-      commit('setResultByTitle', { Search, Error })
+    fetchResultByTitle( { commit }, payload: string ) {
+
+      const fetchByTitle = new Action();
+      fetchByTitle.setParams(
+        'setResultByTitle',
+        `${api_link}&s=${payload}`,
+        'array'
+      );
+      fetchByTitle.fetching(commit)
+
     },
-    async fetchResultByID ( { commit } , payload ) {
-      const res = await fetch(`${api_link}&plot=full&i=${payload}`)
-      const data = await res.json()
-      commit('setResultByID', data)
+
+    fetchResultByID ( { commit } , payload: string ) {
+
+      const fetchByID = new Action();
+      fetchByID.setParams(
+        'setResultByID',
+        `${api_link}&plot=full&i=${payload}`,
+        'object'
+      )
+      fetchByID.fetching(commit);
+
     }
   }
 })

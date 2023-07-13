@@ -1,7 +1,17 @@
 <template>
     <div class="item" @click="handleNavigate(index?.imdbID)">
         <div class="item-image">
-            <img :src="index?.Poster" :alt="index?.Title" />
+        <template v-if="index?.Poster !== 'N/A'">
+            <img 
+                :src="index?.Poster" 
+                :alt="index?.Title" 
+            />
+        </template>
+        <template v-else>
+            <h6>
+                Poster not found
+            </h6>
+        </template>
             <span>{{ index?.Type }}</span>
         </div>
         <div class="item-info">
@@ -15,12 +25,12 @@
 import { defineComponent, PropType } from 'vue'
 import './main.css'
 import { useRouter } from 'vue-router'
-import { searchResultObject } from '@/types/types';
+import { searchByTitleType } from '@/types/types';
 export default defineComponent({
     props: {
         index: {
             requird: true,
-            type: Object as PropType<searchResultObject> 
+            type: Object as PropType<searchByTitleType> 
         }
     },
     setup (props) {

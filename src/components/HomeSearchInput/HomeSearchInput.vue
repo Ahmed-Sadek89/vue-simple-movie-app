@@ -5,6 +5,7 @@
             placeholder="What are you looking for ?" 
             v-model="searchInput" 
             @input="setSearchInput"
+            autofocus
         />
         <input type="submit" value="search" />
     </form>

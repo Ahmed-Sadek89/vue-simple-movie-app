@@ -13,14 +13,11 @@ export default defineComponent({
   setup(){
     
   },
-  // async created() {
-  //   const store = useStore();
-  //    store.dispatch('getSearchResultInAction', 'gasdasdasame')
-  //    // Response -> false
-  //    store.dispatch('getSearchResultInAction', 'game')
-  //    // Response -> true
-  //    // search -> [...]
-  // },
+  created(){
+    if ( JSON.parse(localStorage.getItem('search') || "") && JSON.parse(localStorage.getItem('search') || "") === '' ) {
+      localStorage.setItem('search', JSON.stringify(''))
+    }
+  },
   components: {
     Navbar
   }
