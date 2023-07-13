@@ -35,8 +35,7 @@ export default defineComponent({
     setup () {
 
         const getlastSearch = JSON.parse(localStorage.getItem('search') || "")
-        
-        const searchInput = ref(getlastSearch);
+        const searchInput = ref(getlastSearch || '');
         
         const { state, dispatch } = useStore();
 
@@ -46,7 +45,7 @@ export default defineComponent({
 
 
         onBeforeMount(() => {
-            if ( getlastSearch !== '') {
+            if ( getlastSearch !== '' && searchResult.value.result.length === 0 ) {
                 dispatch('fetchResultByTitle', getlastSearch)
                 window.scrollTo(0,994.8499755859375); // to scroll down
             }

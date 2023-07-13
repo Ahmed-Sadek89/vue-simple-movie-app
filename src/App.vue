@@ -14,7 +14,7 @@ export default defineComponent({
     
   },
   created(){
-    if ( JSON.parse(localStorage.getItem('search') || "") && JSON.parse(localStorage.getItem('search') || "") === '' ) {
+    if ( localStorage.getItem('search') === null ) {
       localStorage.setItem('search', JSON.stringify(''))
     }
   },

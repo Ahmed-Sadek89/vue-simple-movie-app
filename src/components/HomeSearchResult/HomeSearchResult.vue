@@ -5,6 +5,7 @@
             <img 
                 :src="index?.Poster" 
                 :alt="index?.Title" 
+                referrerpolicy="no-referrer-when-downgrade"
             />
         </template>
         <template v-else>
