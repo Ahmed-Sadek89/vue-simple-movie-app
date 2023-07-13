@@ -35,6 +35,12 @@ ul{
     margin: 0px;
 }
 
+button{
+    cursor: pointer;
+    border: none;
+    text-transform: capitalize;
+}
+
 .loading-fetch,
 .error-fetch{
     padding: 30px 10px;

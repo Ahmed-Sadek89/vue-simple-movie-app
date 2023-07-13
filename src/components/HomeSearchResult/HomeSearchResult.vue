@@ -20,6 +20,7 @@
             <h2>{{ index?.Title }}</h2>
         </div>
     </div>
+    
 </template>
 
 <script lang="ts">

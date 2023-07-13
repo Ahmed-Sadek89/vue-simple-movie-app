@@ -1,0 +1,31 @@
+.notfound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    gap: 20px;
+}
+.notfound p{
+    font-size: 20px;
+    word-wrap: break-word;
+    text-align: center;
+}
+.notfound p span{
+    font-weight: bold;
+}
+.notfound p span:nth-child(1){
+    color: #42b883;
+    font-size: 50px;
+}
+.notfound p span:nth-child(2){
+    font-size: 30px;
+}
+.notfound button{
+    background: #42b883;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}

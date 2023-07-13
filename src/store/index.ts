@@ -25,12 +25,18 @@ export default createStore({
     }
   },
   actions: {
-    fetchResultByTitle( { commit }, payload: string ) {
+    fetchResultByTitle( 
+      { commit }, 
+      payload: {
+        title: string,
+        page_number: number
+      } 
+    ) {
 
       const fetchByTitle = new Action();
       fetchByTitle.setParams(
         'setResultByTitle',
-        `${api_link}&s=${payload}`,
+        `${api_link}&s=${payload.title}&page=${payload.page_number}`,
         'array'
       );
       fetchByTitle.fetching(commit)
